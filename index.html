@@ -7,36 +7,110 @@
     <title>Loja de acessórios</title>
     <link href="output.css" rel="stylesheet">
     <style>
+        html, body {
+            height: 100%;
+        }
         @media (max-width: 625px) {
             #searchbar {
                 display: none;
             }
         }
+
+        @media (max-width: 819px) {
+            .panel-items {
+                width: 540px;
+            }
+        }
+        @media (max-width: 577px) {
+            .panel-items {
+                width: 280px;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: rgb(127 29 29);
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgb(220 38 38);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgb(239 68 68);
+        }
     </style>
 </head>
-<body class="bg-gray-200 flex flex-col h-full w-full">
-    <div class="w-full bg-gradient-to-r from-red-500 to-red-600 h-12 flex flex-row justify-between pl-10 pr-10 items-center font-mono text-yellow-100">
+<body class="bg-gray-200 flex flex-col w-full justify-between">
+    <div class="sticky top-0 z-20 w-full bg-gradient-to-r from-red-500 to-red-600 h-12 flex flex-row justify-between p-2 pl-10 pr-10 items-center font-mono text-yellow-100">
         <h1 class="text-lg">Logo</h1>
         <div id="searchbar" class="lg:w-100"><form class="w-full"><input type="text" placeholder="pesquisar" class="bg-transparent placeholder:text-yellow-100 outline-0 border-yellow-100"/></form>
         </div>
         <ul class="flex flex-row"><li><a class="mr-10">Criar conta</a></li> <li><a>Login</a></li></ul>
     </div>
 
-    <div class="p-5 w-full flex flex-col items-center">
-        <div class="bg-gradient-to-r from-red-500 to-red-600 text-center w-full max-w-md rounded-md border-2 border-red-500 shadow-md shadow-gray-500 text-yellow-100 p-5">
+    <div class="w-full flex flex-col items-center">
+        <div class="mt-2 bg-gradient-to-r from-red-500 to-red-600 text-center w-full max-w-md rounded-md border-2 border-red-500 shadow-md shadow-gray-500 text-yellow-100 p-5">
             <h2 class="text-lg">Nosso horário de funcionamento é das 7:30 ás 18:00, aberto todos os dias.</h2>
         </div>
 
-        <div class="w-full flex flex-row p-2 mt-10">
-            <div class="text-center text-yellow-100 w-60 pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700"><img class="w-3/4 mx-auto" src="https://imagensemoldes.com.br/wp-content/uploads/2020/12/Foto-Bolsa-Feminina-PNG-789x1024.png">
-                <h2 class="mx-auto text-xl">Bolsa</h2>
-                <h1 class="text-2xl font-bold">R$100</h1>
-                <button class="uppercase mt-5 w-full bg-red-900 p-2 rounded-b-xl">comprar</button>
+        <div class="panel-items flex flex-row max-w-full relative z-0 items-center mt-10">
+            <div class="h-full absolute left-0 top-0 flex flex-col justify-center"><button id="bl1" class="bg-red-900 active:bg-red-700 rounded-full p-3 w-10 h-10"></button></div>
+            <div class="h-full absolute right-0 top-0 flex flex-col justify-center"><button id="br1" class="bg-red-900 active:bg-red-700 rounded-full p-3 w-10 h-10"></button></div>
+            <div id="panel1" class="flex flex-row min-w-[240px] max-w-[760px] ml-5 mr-5 pb-2 overflow-x-hidden">
+            </div>
+        </div>
+
+
+        <div class="panel-items flex flex-row max-w-full relative z-0 items-center mt-10">
+            <div class="h-full absolute left-0 top-0 flex flex-col justify-center"><button id="bl2" class="bg-red-900 active:bg-red-700 rounded-full p-3 w-10 h-10"></button></div>
+            <div class="h-full absolute right-0 top-0 flex flex-col justify-center"><button id="br2" class="bg-red-900 active:bg-red-700 rounded-full p-3 w-10 h-10"></button></div>
+            <div id="panel2" class="flex flex-row min-w-[240px] max-w-[760px] ml-5 mr-5 pb-2 overflow-x-hidden">
             </div>
         </div>
     </div>
 
-    <div>
+    <div class="bg-red-900 text-yellow-100 p-2 pl-5 pr-5 text-center">
+        <h1>Site feito por Pedro Farias</h1>
     </div>
+
+
+    <script>
+        const addScrollEvent = (buttonLeft, buttonRight, layout) => {
+            buttonLeft.addEventListener('click', () => {
+                layout.scrollLeft -= 260
+            })
+            buttonRight.addEventListener('click', () => {
+                layout.scrollLeft += 260
+            })
+        }
+
+        addScrollEvent(document.querySelector('#bl1'), document.querySelector('#br1'), document.querySelector('#panel1'))
+        addScrollEvent(document.querySelector('#bl2'), document.querySelector('#br2'), document.querySelector('#panel2'))
+
+        const colar = {
+            image: 'colar.png',
+            name: 'Colar',
+            price: 100
+        }
+
+        for(a=0; a<10; a++) {
+            document.querySelector('#panel1').innerHTML += `
+                <div class="text-center mr-5 last:mr-0 text-yellow-100 w-60 min-w-[240px] pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700">
+                    <img class="w-3/4 mx-auto" src=${colar.image}>
+                    <h2 class="mx-auto text-xl">${colar.name} ${a+1}</h2>
+                    <h1 class="text-2xl font-bold">R$${colar.price}</h1>
+                    <button class="uppercase mt-5 w-full bg-red-900 active:bg-red-700 p-2 rounded-b-xl">comprar</button>
+                </div>`
+            document.querySelector('#panel2').innerHTML += `
+                <div class="text-center mr-5 last:mr-0 text-yellow-100 w-60 min-w-[240px] pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700">
+                    <img class="w-3/4 mx-auto" src=${colar.image}>
+                    <h2 class="mx-auto text-xl">${colar.name} ${a+1}</h2>
+                    <h1 class="text-2xl font-bold">R$${colar.price}</h1>
+                    <button class="uppercase mt-5 w-full bg-red-900 active:bg-red-700 p-2 rounded-b-xl">comprar</button>
+                </div>`
+        }
+    </script>
 </body>
 </html>
