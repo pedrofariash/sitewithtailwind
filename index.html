@@ -42,7 +42,7 @@
         }
     </style>
 </head>
-<body class="bg-gray-200 flex flex-col w-full justify-between">
+<body class="bg-gray-200 flex flex-col w-full">
     <div class="sticky top-0 z-20 w-full bg-gradient-to-r from-red-500 to-red-600 h-12 flex flex-row justify-between p-2 pl-10 pr-10 items-center font-mono text-yellow-100">
         <h1 class="text-lg">Logo</h1>
         <div id="searchbar" class="lg:w-100"><form class="w-full"><input type="text" placeholder="pesquisar" class="bg-transparent placeholder:text-yellow-100 outline-0 border-yellow-100"/></form>
@@ -50,7 +50,7 @@
         <ul class="flex flex-row"><li><a class="mr-10">Criar conta</a></li> <li><a>Login</a></li></ul>
     </div>
 
-    <div class="w-full flex flex-col items-center">
+    <div class="w-full flex flex-col items-center mb-auto p-2">
         <div class="mt-2 bg-gradient-to-r from-red-500 to-red-600 text-center w-full max-w-md rounded-md border-2 border-red-500 shadow-md shadow-gray-500 text-yellow-100 p-5">
             <h2 class="text-lg">Nosso horário de funcionamento é das 7:30 ás 18:00, aberto todos os dias.</h2>
         </div>
@@ -90,24 +90,24 @@
         addScrollEvent(document.querySelector('#bl2'), document.querySelector('#br2'), document.querySelector('#panel2'))
 
         const colar = {
-            image: 'colar.png',
+            image: 'https://www.pngplay.com/wp-content/uploads/12/Necklace-PNG-Pic-Clip-Art-Background.png',
             name: 'Colar',
             price: 100
         }
 
         for(a=0; a<10; a++) {
             document.querySelector('#panel1').innerHTML += `
-                <div class="text-center mr-5 last:mr-0 text-yellow-100 w-60 min-w-[240px] pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700">
-                    <img class="w-3/4 mx-auto" src=${colar.image}>
-                    <h2 class="mx-auto text-xl">${colar.name} ${a+1}</h2>
-                    <h1 class="text-2xl font-bold">R$${colar.price}</h1>
+                <div class="text-center mr-5 last:mr-0 text-yellow-100 w-60 min-w-[240px] flex flex-col justify-between min-h-[350px] max-h-[400px] pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700">
+                    <img class="w-3/4 max-w-[300px] mx-auto" src=${colar.image}>
+                    <h2 class="mx-auto text-xl mt-10">${colar.name} ${a+1}</h2>
+                    <h1 class="text-2xl font-bold mb-auto">R$${colar.price}</h1>
                     <button class="uppercase mt-5 w-full bg-red-900 active:bg-red-700 p-2 rounded-b-xl">comprar</button>
                 </div>`
             document.querySelector('#panel2').innerHTML += `
-                <div class="text-center mr-5 last:mr-0 text-yellow-100 w-60 min-w-[240px] pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700">
-                    <img class="w-3/4 mx-auto" src=${colar.image}>
-                    <h2 class="mx-auto text-xl">${colar.name} ${a+1}</h2>
-                    <h1 class="text-2xl font-bold">R$${colar.price}</h1>
+                <div class="text-center mr-5 last:mr-0 text-yellow-100 w-60 min-w-[240px] flex flex-col justify-between min-h-[350px] max-h-[400px] pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700">
+                    <img class="w-3/4 max-w-[300px] mx-auto" src=${colar.image}>
+                    <h2 class="mx-auto text-xl mt-10">${colar.name} ${a+1}</h2>
+                    <h1 class="text-2xl font-bold mb-auto">R$${colar.price}</h1>
                     <button class="uppercase mt-5 w-full bg-red-900 active:bg-red-700 p-2 rounded-b-xl">comprar</button>
                 </div>`
         }
