@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loja de acessórios</title>
+    <link href="output.css" rel="stylesheet">
+    <style>
+        @media (max-width: 625px) {
+            #searchbar {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-200 flex flex-col h-full w-full">
+    <div class="w-full bg-gradient-to-r from-red-500 to-red-600 h-12 flex flex-row justify-between pl-10 pr-10 items-center font-mono text-yellow-100">
+        <h1 class="text-lg">Logo</h1>
+        <div id="searchbar" class="lg:w-100"><form class="w-full"><input type="text" placeholder="pesquisar" class="bg-transparent placeholder:text-yellow-100 outline-0 border-yellow-100"/></form>
+        </div>
+        <ul class="flex flex-row"><li><a class="mr-10">Criar conta</a></li> <li><a>Login</a></li></ul>
+    </div>
+
+    <div class="p-5 w-full flex flex-col items-center">
+        <div class="bg-gradient-to-r from-red-500 to-red-600 text-center w-full max-w-md rounded-md border-2 border-red-500 shadow-md shadow-gray-500 text-yellow-100 p-5">
+            <h2 class="text-lg">Nosso horário de funcionamento é das 7:30 ás 18:00, aberto todos os dias.</h2>
+        </div>
+
+        <div class="w-full flex flex-row p-2 mt-10">
+            <div class="text-center text-yellow-100 w-60 pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700"><img class="w-3/4 mx-auto" src="https://imagensemoldes.com.br/wp-content/uploads/2020/12/Foto-Bolsa-Feminina-PNG-789x1024.png">
+                <h2 class="mx-auto text-xl">Bolsa</h2>
+                <h1 class="text-2xl font-bold">R$100</h1>
+                <button class="uppercase mt-5 w-full bg-red-900 p-2 rounded-b-xl">comprar</button>
+            </div>
+        </div>
+    </div>
+
+    <div>
+    </div>
+</body>
+</html>
