@@ -10,6 +10,9 @@
         html, body {
             height: 100%;
         }
+        body {
+            -webkit-tap-highlight-color: rgba(204, 204, 204, 0);
+        }
         @media (max-width: 625px) {
             #searchbar {
                 display: none;
@@ -42,8 +45,8 @@
         }
     </style>
 </head>
-<body class="bg-gray-200 flex flex-col w-full">
-    <div class="sticky top-0 z-20 w-full bg-gradient-to-r from-red-500 to-red-600 h-12 flex flex-row justify-between p-2 pl-10 pr-10 items-center font-mono text-yellow-100">
+<body class="bg-gray-200 flex flex-col w-full font-mono">
+    <div class="sticky top-0 z-20 w-full bg-gradient-to-r from-red-500 to-red-600 h-12 flex flex-row justify-between p-2 pl-10 pr-10 items-center text-yellow-100">
         <h1 class="text-lg">Logo</h1>
         <div id="searchbar" class="lg:w-100"><form class="w-full"><input type="text" placeholder="pesquisar" class="bg-transparent placeholder:text-yellow-100 outline-0 border-yellow-100"/></form>
         </div>
@@ -56,22 +59,22 @@
         </div>
 
         <div class="panel-items flex flex-row max-w-full relative z-0 items-center mt-10">
-            <div class="h-full absolute left-0 top-0 flex flex-col justify-center"><button id="bl1" class="bg-red-900 active:bg-red-700 rounded-full p-3 w-10 h-10"></button></div>
-            <div class="h-full absolute right-0 top-0 flex flex-col justify-center"><button id="br1" class="bg-red-900 active:bg-red-700 rounded-full p-3 w-10 h-10"></button></div>
+            <div class="h-full absolute left-0 top-0 flex flex-col justify-center"><button id="bl1" class="bg-gradient-to-l from-red-500 to-red-600 active:bg-gradient-to-r from-red-500 to-red-600 rounded-full p-3 w-10 h-10"></button></div>
+            <div class="h-full absolute right-0 top-0 flex flex-col justify-center"><button id="br1" class="bg-gradient-to-l from-red-500 to-red-600 active:bg-gradient-to-r from-red-500 to-red-600 rounded-full p-3 w-10 h-10"></button></div>
             <div id="panel1" class="flex flex-row min-w-[240px] max-w-[760px] ml-5 mr-5 pb-2 overflow-x-hidden">
             </div>
         </div>
 
 
         <div class="panel-items flex flex-row max-w-full relative z-0 items-center mt-10">
-            <div class="h-full absolute left-0 top-0 flex flex-col justify-center"><button id="bl2" class="bg-red-900 active:bg-red-700 rounded-full p-3 w-10 h-10"></button></div>
-            <div class="h-full absolute right-0 top-0 flex flex-col justify-center"><button id="br2" class="bg-red-900 active:bg-red-700 rounded-full p-3 w-10 h-10"></button></div>
+            <div class="h-full absolute left-0 top-0 flex flex-col justify-center"><button id="bl2" class="bg-gradient-to-l from-red-500 to-red-600 active:bg-gradient-to-r from-red-500 to-red-600 rounded-full p-3 w-10 h-10"></button></div>
+            <div class="h-full absolute right-0 top-0 flex flex-col justify-center"><button id="br2" class="bg-gradient-to-l from-red-500 to-red-600 active:bg-gradient-to-r from-red-500 to-red-600 rounded-full p-3 w-10 h-10"></button></div>
             <div id="panel2" class="flex flex-row min-w-[240px] max-w-[760px] ml-5 mr-5 pb-2 overflow-x-hidden">
             </div>
         </div>
     </div>
 
-    <div class="bg-red-900 text-yellow-100 p-2 pl-5 pr-5 text-center">
+    <div class="bg-red-900 text-yellow-200 p-2 pl-5 pr-5 text-center">
         <h1>Site feito por Pedro Farias</h1>
     </div>
 
@@ -97,18 +100,18 @@
 
         for(a=0; a<10; a++) {
             document.querySelector('#panel1').innerHTML += `
-                <div class="text-center mr-5 last:mr-0 text-yellow-100 w-60 min-w-[240px] flex flex-col justify-between min-h-[350px] max-h-[400px] pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700">
+                <div class="text-center mr-5 last:mr-0 text-yellow-800 w-60 min-w-[240px] flex flex-col justify-between min-h-[350px] max-h-[400px] pt-3 rounded-xl p-1 bg-gray-100">
                     <img class="w-3/4 max-w-[300px] mx-auto" src=${colar.image}>
                     <h2 class="mx-auto text-xl mt-10">${colar.name} ${a+1}</h2>
                     <h1 class="text-2xl font-bold mb-auto">R$${colar.price}</h1>
-                    <button class="uppercase mt-5 w-full bg-red-900 active:bg-red-700 p-2 rounded-b-xl">comprar</button>
+                    <button class="uppercase mt-5 w-full bg-gradient-to-r from-red-500 to-red-600 text-yellow-200 active:bg-gradient-to-l from-red-500 to-red-600 p-2 rounded-md">comprar</button>
                 </div>`
             document.querySelector('#panel2').innerHTML += `
-                <div class="text-center mr-5 last:mr-0 text-yellow-100 w-60 min-w-[240px] flex flex-col justify-between min-h-[350px] max-h-[400px] pt-3 rounded-xl p-0 bg-gradient-to-r from-red-500 to-red-700">
+                <div class="text-center mr-5 last:mr-0 text-yellow-800 w-60 min-w-[240px] flex flex-col justify-between min-h-[350px] max-h-[400px] pt-3 rounded-xl p-1 bg-gray-100">
                     <img class="w-3/4 max-w-[300px] mx-auto" src=${colar.image}>
                     <h2 class="mx-auto text-xl mt-10">${colar.name} ${a+1}</h2>
                     <h1 class="text-2xl font-bold mb-auto">R$${colar.price}</h1>
-                    <button class="uppercase mt-5 w-full bg-red-900 active:bg-red-700 p-2 rounded-b-xl">comprar</button>
+                    <button class="uppercase mt-5 w-full bg-gradient-to-r from-red-500 to-red-600 text-yellow-200 active:bg-gradient-to-l from-red-500 to-red-600 p-2 rounded-md">comprar</button>
                 </div>`
         }
     </script>
